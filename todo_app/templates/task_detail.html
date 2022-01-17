@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form action="" method="post">
+    {% csrf_token %}
+        {{form.as_p}}
+        {% for i in form %}
+    <input type="submit"  value="done">
+    {% endfor %}
+    </form>
+<div class="p-5">
+    <h3>task detail</h3><br>
+    <p>your task title - {{task.title}}</p>
+    <p>your task priority - {{task.priority}}</p>
+    <p>your task added date - {{task.date}}</p>
+    <p>your task added time - {{task.time}}</p>
+    <a href="/{{task.id}}/update" class="btn btn-success">update</a>
+    <a href="/{{task.id}}/delete/" class="btn btn-danger">Done</a>
+</div>
+<a href="/" class="mx-5">return to home page</a>
+{% endblock %}
